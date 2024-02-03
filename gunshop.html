@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/w3.css">
+    <style>
+        #background-container {
+            position: absolute;
+            top: 430px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('css/spark.gif');
+            /* Ganti dengan path gambar Anda */
+            background-size: cover;
+            background-position: center;
+        }
+        
+        #background-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+        
+        #background-text h1 {
+            /* Gaya teks untuk h1 */
+            font-size: 36px;
+            font-weight: bold;
+        }
+        
+        #background-text h2 {
+            /* Gaya teks untuk h2 */
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body style="margin: 0px;">
+    <div class="w3-container" style="width: 100%;">
+        <img src="css/gunchop2.png" width="100%">
+    </div>
+
+    <div class="w3-container">
+        <div class="w3-bar w3-center w3-black">
+            <button class="w3-bar-item w3-button w3-xxlarge" onclick="OpenTujuan('Alert')">Alert</button>
+            <button class="w3-bar-item w3-button w3-xxlarge" onclick="OpenTujuan('profile')">Profile</button>
+            <div class="w3-dropdown-hover">
+                <button class="w3-button w3-xxlarge">Gun</button>
+                <div class="w3-dropdown-content w3-opacity w3-bar-block w3-card-4">
+                    <button class="w3-bar-item w3-button w3-gray" onclick="OpenTujuan('AK-47')">AK-47</button>
+                    <button class="w3-bar-item w3-button w3-gray" onclick="OpenTujuan('UMP')">UMP9</button>
+                    <button class="w3-bar-item w3-button w3-gray" onclick="OpenTujuan('KAR98')">KAR98k</button>
+                    <button class="w3-bar-item w3-button w3-gray" onclick="OpenTujuan('SKS')">SKS</button>
+                    <button class="w3-bar-item w3-button w3-gray" onclick="OpenTujuan('MAGNUM')">MAGNUM</button>
+                </div>
+            </div>
+            <div class="w3-dropdown-hover">
+                <button class="w3-button w3-xxlarge">Bullet</button>
+                <div class="w3-dropdown-content w3-opacity w3-bar-block w3-card-4">
+                    <button class="w3-bar-item w3-button w3-gray" onclick="OpenTujuan('AK-477,62 x 39 mm')">7,62 x 39 mm</button>
+                    <button class="w3-bar-item w3-button w3-gray" onclick="OpenTujuan('UMP9 x 19 mm')">9 x 19 mm</button>
+                    <button class="w3-bar-item w3-button w3-gray" onclick="OpenTujuan('KAR989 x 19 mm')">7.92 x 57 mm</button>
+                    <button class="w3-bar-item w3-button w3-gray" onclick="OpenTujuan('.30 x 7,62 mm')">7,62 x 30 mm</button>
+                    <button class="w3-bar-item w3-button w3-gray" onclick="OpenTujuan('5.56 mm ')">5 x 56 mm</button>
+                </div>
+            </div>
+            <div class="w3-dropdown-hover">
+                <button class="w3-button w3-xxlarge">Armory</button>
+                <div class="w3-dropdown-content w3-opacity w3-bar-block w3-card-4">
+                    <button class="w3-bar-item w3-button w3-gray" onclick="OpenTujuan('helmet')">Helmet</button>
+                    <button class="w3-bar-item w3-button w3-gray" onclick="OpenTujuan('vest')">Vest</button>
+                </div>
+            </div>
+            <div class="w3-dropdown-hover">
+                <button class="w3-button w3-xxlarge">Exploation</button>
+                <div class="w3-dropdown-content w3-opacity w3-bar-block w3-card-4">
+                    <button class="w3-bar-item w3-button w3-gray" onclick="OpenTujuan('granade')">Granade</button>
+                    <button class="w3-bar-item w3-button w3-gray" onclick="OpenTujuan('molotov')">Molotov</button>
+                    <button class="w3-bar-item w3-button w3-gray" onclick="OpenTujuan('flashbang')">flashbang</button>
+                </div>
+            </div>
+
+            <!-- <div id="background-container">
+                <div style="z-index: 1000px; display:contents;" id="background-text">
+                    <img style="width: 100%;" src="css/spark.gif" alt="Gambar Latar" id="background-img">
+                    <h1>*WARNING*</h1>
+                    <h2>THIS WEB IS 21+</h2>
+                </div>
+            </div> -->
+            <div id="background-container">
+                <div id="idPertama">
+                    <div id="background-text">
+                        <h1>*WARNING*</h1>
+                        <h2>THIS WEB IS 21+</h2>
+                    </div>
+                </div>
+                <div hidden id="idKedua">
+                    <div id="background-text" style="background-color: hsla(0, 2%, 49%, 0.638) ; border-radius: 10px;">
+                        <img style="background-color: transparent;" src="css/alert.png">
+                        <h1>WARNING: Firearms Content</h1>
+                        <p>This website contains information and content about firearms, including but not limited to descriptions, images, videos, and discussions related to firearms, ammunition, and related accessories.</p>
+                        <p>Firearms content may include depictions of firearms in use, discussion of firearm capabilities, maintenance procedures, and safety guidelines.</p>
+                        <p>This content is intended for educational, informational, and entertainment purposes only. Viewer discretion is advised.</p>
+                        <p>If you are under the legal age to view firearms-related content in your jurisdiction, or if you are uncomfortable with such content, please exit this website immediately.</p>
+                    </div>
+                    <!-- Your website content goes here -->
+                </div>
+                <div hidden id="idKetiga">
+                    <div id="background-text" style="background-color: hsla(0, 2%, 49%, 0.638) ; border-radius: 10px;">
+                        <img style="background-color: transparent; margin-top: 15px;" src="css/racoon.jpg" width="25%">
+                        <h1>Profile</h1>
+                        <p>Nama : M. Erin Naufal Pratama</p>
+                        <p>NIM : 10123256</p>
+                        <p>Kelas : IF - 6</p>
+                    </div>
+                    <!-- Your website content goes here -->
+                </div>
+                <div hidden id="idKeempat">
+                    <div id="background-text" style="background-color: hsla(0, 2%, 49%, 0.638) ; border-radius: 10px; width:75%;">
+                        <img style="background-color: transparent; margin-top: 15px;" src="css/ak-47.jpg" width="450px">
+                        <h1>AK-47</h1>
+                        <p>The AK-47 is a legendary assault rifle known for its rugged reliability, simplicity, and widespread use worldwide. Designed by Mikhail Kalashnikov in the Soviet Union in the late 1940s, it has become one of the most iconic firearms
+                            in history.</p>
+                        <p>The AK-47 is chambered for the 7.62x39mm cartridge and features a gas-operated, rotating bolt mechanism. Its robust construction allows it to operate reliably in harsh conditions, making it a popular choice for military forces,
+                            paramilitary groups, and civilians alike.</p>
+                        <p>With its distinctive curved magazine and distinctive silhouette, the AK-47 is instantly recognizable. It has been featured in countless movies, video games, and works of literature, cementing its status as a cultural icon.</p>
+                        <p>Despite its simplicity, the AK-47 is highly effective in combat situations, offering good accuracy, firepower, and ease of use. Its design has inspired numerous variants and derivatives, further contributing to its enduring legacy.</p>
+                        <p>While celebrated for its performance and durability, it's important to remember that the AK-47, like any firearm, can be dangerous in the wrong hands. Proper training, safety protocols, and responsible ownership are essential when
+                            handling any firearm.</p>
+                    </div>
+                    <!-- Your website content goes here -->
+                </div>
+                <div hidden id="idKelima">
+                    <div id="background-text" style="background-color: hsla(0, 2%, 49%, 0.638) ; border-radius: 10px; width:75%;">
+                        <img style="background-color: transparent; margin-top: 15px;" src="css/ump9.jpeg" width="450px">
+                        <h1>UMP9</h1>
+                        <p>The UMP9, or Universale Maschinenpistole 9mm, is a lightweight submachine gun developed by Heckler & Koch, a renowned German firearms manufacturer. It is a part of the UMP (Universale Maschinenpistole) family, which includes variants
+                            chambered in different calibers.</p>
+                        <p>The UMP9 is chambered for the 9x19mm Parabellum cartridge, commonly used in handguns and submachine guns. It features a polymer construction, which makes it lightweight and durable, suitable for various tactical situations.</p>
+                        <p>Designed for close-quarters combat, the UMP9 offers a high rate of fire combined with good accuracy and controllability. It is equipped with a retractable stock and Picatinny rails for attaching accessories such as optics, lights,
+                            and grips.</p>
+                        <p>Due to its compact size and reliable performance, the UMP9 is favored by military and law enforcement units worldwide, as well as civilian shooters for personal defense and recreational shooting.</p>
+                        <p>While the UMP9 excels in urban environments and close-quarters engagements, users should be mindful of its limitations in long-range engagements. Like any firearm, proper training and safety precautions are essential for safe and
+                            responsible use.</p>
+                    </div>
+                </div>
+                <div hidden id="idKeenam">
+                    <div id="background-text" style="background-color: hsla(0, 2%, 49%, 0.638) ; border-radius: 10px; width:75%;">
+                        <img style="background-color: transparent; margin-top: 15px;" src="css/kar98k.jpeg" width="450px">
+                        <h1>Karabiner 98 Kurz (Kar98k)</h1>
+                        <p>The Karabiner 98 Kurz, commonly known as the Kar98k, is a bolt-action rifle that served as the standard German infantry rifle during World War II. Developed by Mauser in the late 1930s, it became one of the most iconic firearms
+                            of the war.</p>
+                        <p>The Kar98k is chambered for the 7.92x57mm Mauser cartridge, a powerful and accurate round with excellent long-range capabilities. Its bolt-action mechanism provides reliable and precise firing, making it effective in various combat
+                            situations.
+                        </p>
+                        <p>Featuring a wooden stock and a distinctive profile, the Kar98k is instantly recognizable. It is equipped with iron sights for aiming and can be fitted with a scope for enhanced accuracy at longer ranges.</p>
+                        <p>The Kar98k earned a reputation for its rugged reliability, simplicity, and accuracy on the battlefield. It was used by German soldiers throughout World War II and remained in service with various military and paramilitary forces
+                            around the world for decades after the war.</p>
+                        <p>Today, the Kar98k is highly sought after by collectors and enthusiasts for its historical significance and craftsmanship. It continues to be featured in movies, video games, and other forms of media, preserving its legacy as one
+                            of the most iconic rifles of the 20th century.</p>
+                    </div>
+                </div>
+                <div hidden id="idKetujuh">
+                    <div id="background-text" style="background-color: hsla(0, 2%, 49%, 0.638) ; border-radius: 10px; width:75%;">
+                        <img style="background-color: transparent; margin-top: 15px;" src="css/sks.jpeg" width="450px">
+                        <h1>SKS</h1>
+                        <p>The SKS is a Soviet semi-automatic rifle that was developed during the early years of the Cold War. Designed by Sergei Gavrilovich Simonov, it was introduced into service in 1945 and remained in production for several decades.</p>
+                        <p>The SKS is chambered for the 7.62x39mm cartridge, the same round used in the AK-47. It features a gas-operated action with a tilting bolt, providing reliable semi-automatic fire with each pull of the trigger.</p>
+                        <p>Featuring a wooden stock and a 10-round fixed magazine, the SKS is known for its robust construction and simple design. It is equipped with iron sights for aiming and can be fitted with a bayonet for close-quarters combat.</p>
+                        <p>The SKS saw widespread use during the mid-20th century, particularly by Soviet and Eastern Bloc forces. It was also exported to various countries around the world and saw action in numerous conflicts.</p>
+                        <p>Today, the SKS remains popular among collectors and enthusiasts for its historical significance, reliability, and affordability. It is also used for hunting, target shooting, and recreational shooting by civilians in many countries.</p>
+                    </div>
+                </div>
+                <div hidden id="idKedelapan">
+                    <div id="background-text" style="background-color: hsla(0, 2%, 49%, 0.638) ; border-radius: 10px; width:75%;">
+                        <img style="background-color: transparent; margin-top: 15px;" src="css/magnum.jpeg" width="375px">
+                        <h1>Magnum</h1>
+                        <p>The term "Magnum" refers to a class of powerful and high-performance cartridges commonly used in handguns and rifles. Magnum cartridges are known for their larger case capacity and higher muzzle velocities compared to standard
+                            cartridges.
+                        </p>
+                        <p>Magnum cartridges are characterized by their ability to deliver increased stopping power, extended range, and improved terminal ballistics, making them popular choices for hunting, target shooting, and self-defense.</p>
+                        <p>Magnum handguns, such as the .357 Magnum, .44 Magnum, and .500 Magnum, are widely used by law enforcement agencies, hunters, and civilians for various purposes. They offer greater firepower and penetration compared to traditional
+                            handgun cartridges.</p>
+                        <p>In addition to handguns, Magnum cartridges are also utilized in rifles for hunting big game and long-range shooting. Rifles chambered in Magnum calibers, such as the .300 Winchester Magnum and .338 Lapua Magnum, are prized for
+                            their accuracy and lethality.</p>
+                        <p>While Magnum cartridges offer significant advantages in terms of performance, they also produce greater recoil and muzzle blast, requiring shooters to have proper training and experience to handle them effectively.</p>
+                    </div>
+                </div>
+                <div hidden id="idKesembilan">
+                    <div id="background-text" style="background-color: hsla(0, 2%, 49%, 0.638) ; border-radius: 10px; width:75%;">
+                        <img style="background-color: transparent; margin-top: 15px;" src="css/bul762.jpeg" width="245px">
+                        <p>The 7.62 x 39 mm cartridge is a intermediate rifle cartridge developed by the Soviet Union during World War II. It is commonly associated with firearms such as the AK-47 and SKS, as well as various other rifles and carbines.</p>
+                        <p>Featuring a bullet diameter of 7.62 mm (0.30 inches) and a case length of 39 mm (1.54 inches), the 7.62 x 39 mm cartridge is known for its moderate power and effective range. It strikes a balance between stopping power and controllability,
+                            making it suitable for a wide range of applications.</p>
+                        <p>The 7.62 x 39 mm cartridge is commonly used in military and civilian rifles for hunting, target shooting, and self-defense. It is known for its reliability and affordability, as well as its availability in various loadings, including
+                            full metal jacket (FMJ), soft point (SP), and hollow point (HP).</p>
+                        <p>While the 7.62 x 39 mm cartridge is not as powerful as larger rifle cartridges, it offers sufficient stopping power for most medium-range engagements. It is widely used in regions where military surplus firearms are prevalent,
+                            and it remains a popular choice among shooters worldwide.</p>
+                        <p>As with any firearm cartridge, proper training and safety precautions are essential when handling firearms chambered in 7.62 x 39 mm. Users should be familiar with the ballistics and characteristics of the cartridge to ensure safe
+                            and effective use.</p>
+                    </div>
+                </div>
+                <div hidden id="idKesepuluh">
+                    <div id="background-text" style="background-color: hsla(0, 2%, 49%, 0.638) ; border-radius: 10px; width:75%;">
+                        <img style="background-color: transparent; margin-top: 15px;" src="css/bul19.jpeg" width="245px">
+                        <h1>9 x 19 mm Bullet</h1>
+                        <p>The 9 x 19 mm cartridge, also known as 9mm Parabellum or 9mm Luger, is one of the most widely used pistol cartridges in the world. Developed by Georg Luger in the early 20th century, it has become the standard caliber for handguns
+                            used by military, law enforcement, and civilians.</p>
+                        <p>Featuring a bullet diameter of 9 mm (0.355 inches) and a case length of 19 mm (0.748 inches), the 9 x 19 mm cartridge strikes a balance between power, recoil, and capacity. It offers good stopping power and controllability, making
+                            it suitable for a variety of applications.</p>
+                        <p>The 9 x 19 mm cartridge is used in a wide range of handguns, including pistols, submachine guns, and carbines. It is prized for its reliability, affordability, and availability of ammunition worldwide.</p>
+                        <p>With its widespread adoption, the 9 x 19 mm cartridge has proven effective in self-defense, law enforcement, and military applications. It is known for its versatility, capable of being used in compact concealed carry pistols as
+                            well as full-size duty handguns.</p>
+                        <p>As with any firearm cartridge, proper training and safety precautions are essential when handling firearms chambered in 9 x 19 mm. Users should be familiar with the ballistics and characteristics of the cartridge to ensure safe
+                            and effective use.</p>
+                    </div>
+                </div>
+                <div hidden id="idKesebelas">
+                    <div id="background-text" style="background-color: hsla(0, 2%, 49%, 0.638) ; border-radius: 10px; width:75%;">
+                        <img style="background-color: transparent; margin-top: 15px;" src="css/bul57.jpeg" width="175px">
+                        <h1>7.92x57mm Mauser Bullet</h1>
+                        <p>The 7.92x57mm Mauser, also known as 8mm Mauser or 8x57mm, is a rifle cartridge that was developed by the German Empire in the late 19th century. It has since become one of the most widely used military rifle cartridges in history.</p>
+                        <p>Featuring a bullet diameter of 7.92 mm (0.312 inches) and a case length of 57 mm (2.24 inches), the 7.92x57mm Mauser cartridge is known for its versatility and effectiveness in a variety of rifles and machine guns.</p>
+                        <p>The 7.92x57mm Mauser cartridge has been used in numerous military conflicts and has earned a reputation for its long-range accuracy and stopping power. It was the standard service cartridge for the German military during both World
+                            Wars and has been adopted by many other countries.</p>
+                        <p>In addition to military use, the 7.92x57mm Mauser cartridge is also popular among civilian shooters for hunting and target shooting. It is available in various loadings, including full metal jacket (FMJ), soft point (SP), and armor-piercing
+                            (AP), making it suitable for a wide range of applications.</p>
+                        <p>Today, the 7.92x57mm Mauser cartridge remains in use by military, law enforcement, and civilian shooters around the world. Its availability, reliability, and effectiveness continue to make it a popular choice for those seeking
+                            a powerful and versatile rifle cartridge.</p>
+                    </div>
+                </div>
+                <div hidden id="idKeduabelas">
+                    <div id="background-text" style="background-color: hsla(0, 2%, 49%, 0.638) ; border-radius: 10px; width:75%;">
+                        <img style="background-color: transparent; margin-top: 15px;" src="css/bul30.jpeg" width="175px">
+                        <h1>7.62mm Cartridge</h1>
+                        <p>The 7.62mm cartridge is a widely used rifle cartridge known for its versatility and effectiveness.
+                            <p>Featuring a bullet diameter of 7.62 mm (0.30 inches), it is utilized in various rifles and machine guns.</p>
+                            <p>This cartridge has seen extensive use in military conflicts and is favored for its accuracy and stopping power. Available in different loadings including full metal jacket (FMJ), soft point (SP), and armor-piercing (AP). Popular
+                                among both military and civilian shooters for hunting, target shooting, and tactical applications. </p>
+                    </div>
+                </div>
+                <div hidden id="idKetigabelas">
+                    <div id="background-text" style="background-color: hsla(0, 2%, 49%, 0.638) ; border-radius: 10px; width:75%;">
+                        <img style="background-color: transparent; margin-top: 15px;" src="css/bul56.jpeg" width="175px">
+                        <h1>5.56mm Bullet</h1>
+                        <p>The 5.56×45mm NATO is a rifle cartridge developed in the United States and originally chambered in the M16 rifle.</p>
+                        <p>It is a standard cartridge for NATO forces as well as many non-NATO countries.</p>
+                        <p>The 5.56mm bullet typically weighs between 55 and 77 grains (3.56 to 5.00 g) and has a muzzle velocity of around 3,000 feet per second (910 m/s).</p>
+                        <p>This cartridge is known for its relatively flat trajectory, low recoil, and high velocity.</p>
+                    </div>
+                </div>
+                <div hidden id="idKeempatbelas">
+                    <div id="background-text" style="background-color: hsla(0, 2%, 49%, 0.638) ; border-radius: 10px; width:75%;">
+                        <img style="background-color: transparent; margin-top: 15px;" src="css/helm.jpeg" width="175px">
+                        <h1>Military Helmet</h1>
+                        <p>A military helmet is a form of protective gear worn to protect the head against injuries caused by impacts, shrapnel, and projectiles in military combat.</p>
+                        <p>These helmets are typically made of ballistic materials such as Kevlar or lightweight metals like steel or titanium. They often feature a protective visor or face shield to shield the wearer's face from debris and projectiles.</p>
+                        <p>Military helmets are designed to provide both protection and comfort for soldiers during combat operations. They are an essential part of a soldier's uniform and are rigorously tested to meet stringent safety standards.</p>
+                    </div>
+                </div>
+                <div hidden id="idKelimabelas">
+                    <div id="background-text" style="background-color: hsla(0, 2%, 49%, 0.638) ; border-radius: 10px; width:75%;">
+                        <img style="background-color: transparent; margin-top: 15px;" src="css/vest.jpeg" width="175px">
+                        <h1>Bulletproof Vest</h1>
+                        <p>A bulletproof vest, also known as a ballistic vest, is a protective garment designed to stop or absorb the impact of bullets fired from firearms. It is typically worn by law enforcement personnel, military members, security guards,
+                            and civilians in high-risk professions.</p>
+                        <p>Modern bulletproof vests are made from multiple layers of strong fibers, such as Kevlar, Twaron, or Spectra, which are woven together to form a flexible and lightweight material. These materials are incredibly strong and can dissipate
+                            the kinetic energy of a bullet, preventing it from penetrating the wearer's body.</p>
+                        <p>Bulletproof vests come in various styles and levels of protection, ranging from soft vests worn under clothing to hard armor plates inserted into tactical vests. They are designed to provide protection against different types of
+                            firearms and ammunition, including handguns, rifles, and shotgun rounds.</p>
+                        <p>In addition to ballistic protection, some bulletproof vests also offer stab and spike resistance, protecting the wearer against attacks with sharp objects such as knives and needles.</p>
+                    </div>
+                </div>
+                <div hidden id="idKeenambelas">
+                    <div id="background-text" style="background-color: hsla(0, 2%, 49%, 0.638) ; border-radius: 10px; width:75%;">
+                        <img style="background-color: transparent; margin-top: 15px;" src="css/granade.jpeg" width="300px">
+                        <h1>Grenade</h1>
+                        <p>A grenade is a small explosive device typically thrown by hand. It consists of an explosive charge, a detonating mechanism, and a metal casing to contain the explosive material.</p>
+                        <p>Grenades are commonly used in military and law enforcement operations for various purposes, including clearing out enemy positions, creating diversions, or signaling distress.</p>
+                    </div>
+                </div>
+                <div hidden id="idKetujuhbelas">
+                    <div id="background-text" style="background-color: hsla(0, 2%, 49%, 0.638) ; border-radius: 10px; width:75%;">
+                        <img style="background-color: transparent; margin-top: 15px;" src="css/molotov.jpeg" width="300px">
+                        <h1>Molotov Cocktail</h1>
+                        <p>A Molotov cocktail, also known as a petrol bomb, gasoline bomb, or Molotov bomb, is a simple incendiary weapon.</p>
+                        <p>It is typically made using a glass bottle filled with a flammable liquid such as gasoline, alcohol, or a mixture of gasoline and diesel fuel.</p>
+                        <p>A cloth wick, usually soaked in the flammable liquid, is inserted into the bottle's opening, acting as a makeshift fuse.</p>
+                        <p>When the Molotov cocktail is lit and thrown, the bottle shatters upon impact, spreading the ignited liquid and starting fires.</p>
+                    </div>
+                </div>
+                <div hidden id="idKedelapanbelas">
+                    <div id="background-text" style="background-color: hsla(0, 2%, 49%, 0.638) ; border-radius: 10px; width:75%;">
+                        <img style="background-color: transparent; margin-top: 15px;" src="css/flash.jpeg" width="175px">
+                        <h1>Flashbang Grenade</h1>
+                        <p>A flashbang grenade, also known as a stun grenade, is a non-lethal explosive device used to temporarily disorient an enemy's senses. It emits a blinding flash of light and a loud noise upon detonation.</p>
+                        <h2>Features:</h2>
+                        <ul>
+                            <li>Blinding Flash: The intense light emitted by the flashbang temporarily blinds opponents, making it difficult for them to see and react.</li>
+                            <li>Deafening Noise: The loud noise produced by the flashbang disorients opponents and can cause temporary hearing loss.</li>
+                            <li>Non-lethal: Unlike traditional grenades, flashbangs are designed to incapacitate rather than kill.</li>
+                            <li>Quick Deployment: Flashbangs can be thrown quickly and have a short detonation time, allowing for rapid deployment in tactical situations.</li>
+                        </ul>
+                        <p>Flashbangs are commonly used by military and law enforcement units during hostage rescue operations, room clearing, and other close-quarters combat scenarios.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        function OpenTujuan(nilai) {
+            if (nilai == 'Alert') {
+                document.getElementById('idPertama').hidden = true
+                document.getElementById('idKedua').hidden = false
+                document.getElementById('idKetiga').hidden = true
+                document.getElementById('idKeempat').hidden = true
+                document.getElementById('idKelima').hidden = true
+                document.getElementById('idKeenam').hidden = true
+                document.getElementById('idKetujuh').hidden = true
+                document.getElementById('idKedelapan').hidden = true
+                document.getElementById('idKesembilan').hidden = true
+                document.getElementById('idKesepuluh').hidden = true
+                document.getElementById('idKesebelas').hidden = true
+                document.getElementById('idKeduabelas').hidden = true
+                document.getElementById('idKetigabelas').hidden = true
+                document.getElementById('idKeempatbelas').hidden = true
+                document.getElementById('idKelimabelas').hidden = true
+                document.getElementById('idKeenambelas').hidden = true
+                document.getElementById('idKetujuhbelas').hidden = true
+                document.getElementById('idKedelapanbelas').hidden = true
+            } else if (nilai == 'profile') {
+                document.getElementById('idPertama').hidden = true
+                document.getElementById('idKedua').hidden = true
+                document.getElementById('idKetiga').hidden = false
+                document.getElementById('idKeempat').hidden = true
+                document.getElementById('idKelima').hidden = true
+                document.getElementById('idKeenam').hidden = true
+                document.getElementById('idKetujuh').hidden = true
+                document.getElementById('idKedelapan').hidden = true
+                document.getElementById('idKesembilan').hidden = true
+                document.getElementById('idKesepuluh').hidden = true
+                document.getElementById('idKesebelas').hidden = true
+                document.getElementById('idKeduabelas').hidden = true
+                document.getElementById('idKetigabelas').hidden = true
+                document.getElementById('idKeempatbelas').hidden = true
+                document.getElementById('idKelimabelas').hidden = true
+                document.getElementById('idKeenambelas').hidden = true
+                document.getElementById('idKetujuhbelas').hidden = true
+                document.getElementById('idKedelapanbelas').hidden = true
+            } else if (nilai == 'AK-47') {
+                document.getElementById('idPertama').hidden = true
+                document.getElementById('idKedua').hidden = true
+                document.getElementById('idKetiga').hidden = true
+                document.getElementById('idKeempat').hidden = false
+                document.getElementById('idKelima').hidden = true
+                document.getElementById('idKeenam').hidden = true
+                document.getElementById('idKetujuh').hidden = true
+                document.getElementById('idKedelapan').hidden = true
+                document.getElementById('idKesembilan').hidden = true
+                document.getElementById('idKesepuluh').hidden = true
+                document.getElementById('idKesebelas').hidden = true
+                document.getElementById('idKeduabelas').hidden = true
+                document.getElementById('idKetigabelas').hidden = true
+                document.getElementById('idKeempatbelas').hidden = true
+                document.getElementById('idKelimabelas').hidden = true
+                document.getElementById('idKeenambelas').hidden = true
+                document.getElementById('idKetujuhbelas').hidden = true
+                document.getElementById('idKedelapanbelas').hidden = true
+            } else if (nilai == 'UMP') {
+                document.getElementById('idPertama').hidden = true
+                document.getElementById('idKedua').hidden = true
+                document.getElementById('idKetiga').hidden = true
+                document.getElementById('idKeempat').hidden = true
+                document.getElementById('idKelima').hidden = false
+                document.getElementById('idKeenam').hidden = true
+                document.getElementById('idKetujuh').hidden = true
+                document.getElementById('idKedelapan').hidden = true
+                document.getElementById('idKesembilan').hidden = true
+                document.getElementById('idKesepuluh').hidden = true
+                document.getElementById('idKesebelas').hidden = true
+                document.getElementById('idKeduabelas').hidden = true
+                document.getElementById('idKetigabelas').hidden = true
+                document.getElementById('idKeempatbelas').hidden = true
+                document.getElementById('idKelimabelas').hidden = true
+                document.getElementById('idKeenambelas').hidden = true
+                document.getElementById('idKetujuhbelas').hidden = true
+                document.getElementById('idKedelapanbelas').hidden = true
+            } else if (nilai == 'KAR98') {
+                document.getElementById('idPertama').hidden = true
+                document.getElementById('idKedua').hidden = true
+                document.getElementById('idKetiga').hidden = true
+                document.getElementById('idKeempat').hidden = true
+                document.getElementById('idKelima').hidden = true
+                document.getElementById('idKeenam').hidden = false
+                document.getElementById('idKetujuh').hidden = true
+                document.getElementById('idKedelapan').hidden = true
+                document.getElementById('idKesembilan').hidden = true
+                document.getElementById('idKesepuluh').hidden = true
+                document.getElementById('idKesebelas').hidden = true
+                document.getElementById('idKeduabelas').hidden = true
+                document.getElementById('idKetigabelas').hidden = true
+                document.getElementById('idKeempatbelas').hidden = true
+                document.getElementById('idKelimabelas').hidden = true
+                document.getElementById('idKeenambelas').hidden = true
+                document.getElementById('idKetujuhbelas').hidden = true
+                document.getElementById('idKedelapanbelas').hidden = true
+            } else if (nilai == 'SKS') {
+                document.getElementById('idPertama').hidden = true
+                document.getElementById('idKedua').hidden = true
+                document.getElementById('idKetiga').hidden = true
+                document.getElementById('idKeempat').hidden = true
+                document.getElementById('idKelima').hidden = true
+                document.getElementById('idKeenam').hidden = true
+                document.getElementById('idKetujuh').hidden = false
+                document.getElementById('idKedelapan').hidden = true
+                document.getElementById('idKesembilan').hidden = true
+                document.getElementById('idKesepuluh').hidden = true
+                document.getElementById('idKesebelas').hidden = true
+                document.getElementById('idKeduabelas').hidden = true
+                document.getElementById('idKetigabelas').hidden = true
+                document.getElementById('idKeempatbelas').hidden = true
+                document.getElementById('idKelimabelas').hidden = true
+                document.getElementById('idKeenambelas').hidden = true
+                document.getElementById('idKetujuhbelas').hidden = true
+                document.getElementById('idKedelapanbelas').hidden = true
+            } else if (nilai == 'MAGNUM') {
+                document.getElementById('idPertama').hidden = true
+                document.getElementById('idKedua').hidden = true
+                document.getElementById('idKetiga').hidden = true
+                document.getElementById('idKeempat').hidden = true
+                document.getElementById('idKelima').hidden = true
+                document.getElementById('idKeenam').hidden = true
+                document.getElementById('idKetujuh').hidden = true
+                document.getElementById('idKedelapan').hidden = false
+                document.getElementById('idKesembilan').hidden = true
+                document.getElementById('idKesepuluh').hidden = true
+                document.getElementById('idKesebelas').hidden = true
+                document.getElementById('idKeduabelas').hidden = true
+                document.getElementById('idKetigabelas').hidden = true
+                document.getElementById('idKeempatbelas').hidden = true
+                document.getElementById('idKelimabelas').hidden = true
+                document.getElementById('idKeenambelas').hidden = true
+                document.getElementById('idKetujuhbelas').hidden = true
+                document.getElementById('idKedelapanbelas').hidden = true
+            } else if (nilai == 'AK-477,62 x 39 mm') {
+                document.getElementById('idPertama').hidden = true
+                document.getElementById('idKedua').hidden = true
+                document.getElementById('idKetiga').hidden = true
+                document.getElementById('idKeempat').hidden = true
+                document.getElementById('idKelima').hidden = true
+                document.getElementById('idKeenam').hidden = true
+                document.getElementById('idKetujuh').hidden = true
+                document.getElementById('idKedelapan').hidden = true
+                document.getElementById('idKesembilan').hidden = false
+                document.getElementById('idKesepuluh').hidden = true
+                document.getElementById('idKesebelas').hidden = true
+                document.getElementById('idKeduabelas').hidden = true
+                document.getElementById('idKetigabelas').hidden = true
+                document.getElementById('idKeempatbelas').hidden = true
+                document.getElementById('idKelimabelas').hidden = true
+                document.getElementById('idKeenambelas').hidden = true
+                document.getElementById('idKetujuhbelas').hidden = true
+                document.getElementById('idKedelapanbelas').hidden = true
+            } else if (nilai == 'UMP9 x 19 mm') {
+                document.getElementById('idPertama').hidden = true
+                document.getElementById('idKedua').hidden = true
+                document.getElementById('idKetiga').hidden = true
+                document.getElementById('idKeempat').hidden = true
+                document.getElementById('idKelima').hidden = true
+                document.getElementById('idKeenam').hidden = true
+                document.getElementById('idKetujuh').hidden = true
+                document.getElementById('idKedelapan').hidden = true
+                document.getElementById('idKesembilan').hidden = true
+                document.getElementById('idKesepuluh').hidden = false
+                document.getElementById('idKesebelas').hidden = true
+                document.getElementById('idKeduabelas').hidden = true
+                document.getElementById('idKetigabelas').hidden = true
+                document.getElementById('idKeempatbelas').hidden = true
+                document.getElementById('idKelimabelas').hidden = true
+                document.getElementById('idKeenambelas').hidden = true
+                document.getElementById('idKetujuhbelas').hidden = true
+                document.getElementById('idKedelapanbelas').hidden = true
+            } else if (nilai == 'KAR989 x 19 mm') {
+                document.getElementById('idPertama').hidden = true
+                document.getElementById('idKedua').hidden = true
+                document.getElementById('idKetiga').hidden = true
+                document.getElementById('idKeempat').hidden = true
+                document.getElementById('idKelima').hidden = true
+                document.getElementById('idKeenam').hidden = true
+                document.getElementById('idKetujuh').hidden = true
+                document.getElementById('idKedelapan').hidden = true
+                document.getElementById('idKesembilan').hidden = true
+                document.getElementById('idKesepuluh').hidden = true
+                document.getElementById('idKesebelas').hidden = false
+                document.getElementById('idKeduabelas').hidden = true
+                document.getElementById('idKetigabelas').hidden = true
+                document.getElementById('idKeempatbelas').hidden = true
+                document.getElementById('idKelimabelas').hidden = true
+                document.getElementById('idKeenambelas').hidden = true
+                document.getElementById('idKetujuhbelas').hidden = true
+                document.getElementById('idKedelapanbelas').hidden = true
+            } else if (nilai == '.30 x 7,62 mm') {
+                document.getElementById('idPertama').hidden = true
+                document.getElementById('idKedua').hidden = true
+                document.getElementById('idKetiga').hidden = true
+                document.getElementById('idKeempat').hidden = true
+                document.getElementById('idKelima').hidden = true
+                document.getElementById('idKeenam').hidden = true
+                document.getElementById('idKetujuh').hidden = true
+                document.getElementById('idKedelapan').hidden = true
+                document.getElementById('idKesembilan').hidden = true
+                document.getElementById('idKesepuluh').hidden = true
+                document.getElementById('idKesebelas').hidden = true
+                document.getElementById('idKeduabelas').hidden = false
+                document.getElementById('idKetigabelas').hidden = true
+                document.getElementById('idKeempatbelas').hidden = true
+                document.getElementById('idKelimabelas').hidden = true
+                document.getElementById('idKeenambelas').hidden = true
+                document.getElementById('idKetujuhbelas').hidden = true
+                document.getElementById('idKedelapanbelas').hidden = true
+            } else if (nilai == '5.56 mm ') {
+                document.getElementById('idPertama').hidden = true
+                document.getElementById('idKedua').hidden = true
+                document.getElementById('idKetiga').hidden = true
+                document.getElementById('idKeempat').hidden = true
+                document.getElementById('idKelima').hidden = true
+                document.getElementById('idKeenam').hidden = true
+                document.getElementById('idKetujuh').hidden = true
+                document.getElementById('idKedelapan').hidden = true
+                document.getElementById('idKesembilan').hidden = true
+                document.getElementById('idKesepuluh').hidden = true
+                document.getElementById('idKesebelas').hidden = true
+                document.getElementById('idKeduabelas').hidden = true
+                document.getElementById('idKetigabelas').hidden = false
+                document.getElementById('idKeempatbelas').hidden = true
+                document.getElementById('idKelimabelas').hidden = true
+                document.getElementById('idKeenambelas').hidden = true
+                document.getElementById('idKetujuhbelas').hidden = true
+                document.getElementById('idKedelapanbelas').hidden = true
+            } else if (nilai == 'helmet') {
+                document.getElementById('idPertama').hidden = true
+                document.getElementById('idKedua').hidden = true
+                document.getElementById('idKetiga').hidden = true
+                document.getElementById('idKeempat').hidden = true
+                document.getElementById('idKelima').hidden = true
+                document.getElementById('idKeenam').hidden = true
+                document.getElementById('idKetujuh').hidden = true
+                document.getElementById('idKedelapan').hidden = true
+                document.getElementById('idKesembilan').hidden = true
+                document.getElementById('idKesepuluh').hidden = true
+                document.getElementById('idKesebelas').hidden = true
+                document.getElementById('idKeduabelas').hidden = true
+                document.getElementById('idKetigabelas').hidden = true
+                document.getElementById('idKeempatbelas').hidden = false
+                document.getElementById('idKelimabelas').hidden = true
+                document.getElementById('idKeenambelas').hidden = true
+                document.getElementById('idKetujuhbelas').hidden = true
+                document.getElementById('idKedelapanbelas').hidden = true
+            } else if (nilai == 'vest') {
+                document.getElementById('idPertama').hidden = true
+                document.getElementById('idKedua').hidden = true
+                document.getElementById('idKetiga').hidden = true
+                document.getElementById('idKeempat').hidden = true
+                document.getElementById('idKelima').hidden = true
+                document.getElementById('idKeenam').hidden = true
+                document.getElementById('idKetujuh').hidden = true
+                document.getElementById('idKedelapan').hidden = true
+                document.getElementById('idKesembilan').hidden = true
+                document.getElementById('idKesepuluh').hidden = true
+                document.getElementById('idKesebelas').hidden = true
+                document.getElementById('idKeduabelas').hidden = true
+                document.getElementById('idKetigabelas').hidden = true
+                document.getElementById('idKeempatbelas').hidden = true
+                document.getElementById('idKelimabelas').hidden = false
+                document.getElementById('idKeenambelas').hidden = true
+                document.getElementById('idKetujuhbelas').hidden = true
+                document.getElementById('idKedelapanbelas').hidden = true
+            } else if (nilai == 'granade') {
+                document.getElementById('idPertama').hidden = true
+                document.getElementById('idKedua').hidden = true
+                document.getElementById('idKetiga').hidden = true
+                document.getElementById('idKeempat').hidden = true
+                document.getElementById('idKelima').hidden = true
+                document.getElementById('idKeenam').hidden = true
+                document.getElementById('idKetujuh').hidden = true
+                document.getElementById('idKedelapan').hidden = true
+                document.getElementById('idKesembilan').hidden = true
+                document.getElementById('idKesepuluh').hidden = true
+                document.getElementById('idKesebelas').hidden = true
+                document.getElementById('idKeduabelas').hidden = true
+                document.getElementById('idKetigabelas').hidden = true
+                document.getElementById('idKeempatbelas').hidden = true
+                document.getElementById('idKelimabelas').hidden = true
+                document.getElementById('idKeenambelas').hidden = false
+                document.getElementById('idKetujuhbelas').hidden = true
+                document.getElementById('idKedelapanbelas').hidden = true
+            } else if (nilai == 'molotov') {
+                document.getElementById('idPertama').hidden = true
+                document.getElementById('idKedua').hidden = true
+                document.getElementById('idKetiga').hidden = true
+                document.getElementById('idKeempat').hidden = true
+                document.getElementById('idKelima').hidden = true
+                document.getElementById('idKeenam').hidden = true
+                document.getElementById('idKetujuh').hidden = true
+                document.getElementById('idKedelapan').hidden = true
+                document.getElementById('idKesembilan').hidden = true
+                document.getElementById('idKesepuluh').hidden = true
+                document.getElementById('idKesebelas').hidden = true
+                document.getElementById('idKeduabelas').hidden = true
+                document.getElementById('idKetigabelas').hidden = true
+                document.getElementById('idKeempatbelas').hidden = true
+                document.getElementById('idKelimabelas').hidden = true
+                document.getElementById('idKeenambelas').hidden = true
+                document.getElementById('idKetujuhbelas').hidden = false
+                document.getElementById('idKedelapanbelas').hidden = true
+            } else if (nilai == 'flashbang') {
+                document.getElementById('idPertama').hidden = true
+                document.getElementById('idKedua').hidden = true
+                document.getElementById('idKetiga').hidden = true
+                document.getElementById('idKeempat').hidden = true
+                document.getElementById('idKelima').hidden = true
+                document.getElementById('idKeenam').hidden = true
+                document.getElementById('idKetujuh').hidden = true
+                document.getElementById('idKedelapan').hidden = true
+                document.getElementById('idKesembilan').hidden = true
+                document.getElementById('idKesepuluh').hidden = true
+                document.getElementById('idKesebelas').hidden = true
+                document.getElementById('idKeduabelas').hidden = true
+                document.getElementById('idKetigabelas').hidden = true
+                document.getElementById('idKeempatbelas').hidden = true
+                document.getElementById('idKelimabelas').hidden = true
+                document.getElementById('idKeenambelas').hidden = true
+                document.getElementById('idKetujuhbelas').hidden = true
+                document.getElementById('idKedelapanbelas').hidden = false
+            }
+        }
+    </script>
+
+</body>
+
+</html>
